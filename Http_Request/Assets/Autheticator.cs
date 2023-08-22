@@ -110,7 +110,7 @@ public class Autheticator : MonoBehaviour
             if (request.responseCode == 200)
             {
                 AuthData data = JsonUtility.FromJson<AuthData>(request.downloadHandler.text);
-                //PlayerPrefs.SetInt("score", data.data.score);
+                PlayerPrefs.SetInt("score", data.usuario.data.score);
                 Debug.Log("User " + data.usuario.username + " initialized game");
                 Debug.Log("Score: " + data.usuario.data.score);
                 panelGame.SetActive(true);
@@ -175,7 +175,7 @@ public class Autheticator : MonoBehaviour
                 Debug.Log("User " + data.usuario.username + " logged in");
                 PlayerPrefs.SetString("token", data.token);
                 PlayerPrefs.SetString("username", data.usuario.username);
-                PlayerPrefs.SetInt("score", data.data.score);
+                PlayerPrefs.SetInt("score", data.usuario.data.score);
                 panelGame.SetActive(true);
                 welcomeText.text = "Wecolme " + data.usuario.username;
                 scoreText.text = "Score:  " + data.usuario.data.score;
